@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".EditVideoPage">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <EditText
+                    android:id="@+id/edit_ssumnail_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="영상 제목을 입력하세요" />
+
+                <ImageView
+                    android:id="@+id/edit_image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    />
+
+                <VideoView
+                    android:id="@+id/edit_video_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="30dp"
+
+                    />
+
+                <EditText
+                    android:id="@+id/edit_video_contents"
+                    android:layout_width="match_parent"
+                    android:layout_height="358dp"
+                    android:layout_marginTop="20dp"
+                    android:ems="10"
+                    android:hint="내용은 100자 이내로 작성하세요" />
+
+                <Button
+                    android:id="@+id/edit_btn_upload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="#14385A"
+                    android:text="수정완료" />
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
