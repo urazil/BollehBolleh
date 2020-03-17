@@ -13,22 +13,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinnodejsauth.Common.Common
-import com.example.kotlinnodejsauth.Retrofit.CommentAPI
-import com.example.kotlinnodejsauth.Retrofit.INodeJS
+import com.example.kotlinnodejsauth.Retrofit.ServiceApi
 //import com.example.kotlinnodejsauth.Retrofit.CommentAPI
-import com.example.kotlinnodejsauth.Retrofit.VideoAPI
 import com.example.kotlinnodejsauth.adapter.CommentAdapter
-import com.example.kotlinnodejsauth.adapter.MyVideoAdapter
 import com.google.gson.Gson
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.internal.operators.flowable.FlowableReplay.observeOn
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_detail.*
-import kotlinx.android.synthetic.main.fragment_feed.*
 import java.lang.StringBuilder
 
 
@@ -39,9 +33,7 @@ const val VIDEO_ID = "videoID"
  */
 class DetailFragment : Fragment() {
     var compositeDisposable = CompositeDisposable()
-    lateinit var VideoAPI: VideoAPI
-    lateinit var CommentAPI: CommentAPI
-    lateinit var myAPI: INodeJS
+    lateinit var myAPI: ServiceApi
     private lateinit var videoID: String
     private lateinit var controller: android.widget.MediaController
     private var mCurrentPosition = 0
@@ -54,7 +46,7 @@ class DetailFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
 
-        VideoAPI = Common.api
+        myAPI = Common.serviceapi
         arguments?.let {
             videoID = it.getString(VIDEO_ID).toString()
         }
@@ -70,8 +62,7 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        CommentAPI = Common.apii
-        VideoAPI = Common.api
+        myAPI = Common.serviceapi
 
         controller = android.widget.MediaController(context)
         controller.setPadding(0, 0, 0, 1000)
@@ -102,16 +93,27 @@ class DetailFragment : Fragment() {
         }
 
         video_modify.setOnClickListener {
-            val intent = Intent(context,EditVideoPage::class.java)
+            val intent = Intent(context, EditVideoPage::class.java)
             startActivity(intent)
         }
 
 
+
+
+
+
+
+
+
+
+
         comment_upload.setOnClickListener {
-
-            uploadcomment(Common.select_video?.id,edit_comment.text.toString(),UserDTO.email,UserDTO.name)
-//            UserInfo()
-
+            uploadcomment(
+                Common.select_video?.id,
+                edit_comment.text.toString(),
+                UserDTO.email,
+                UserDTO.name
+            )
         }
 
 
@@ -180,45 +182,46 @@ class DetailFragment : Fragment() {
         Comment: String?,
         email: String?,
         name: String?
-        ) {
-        compositeDisposable.add(CommentAPI.CommentFile(id,Comment,email,name)
+    ) {
+        compositeDisposable.add(myAPI.CommentFile(id, Comment, email, name)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { message ->
-                if (message.contains("affectedRows")) {
-                    edit_comment.setText("")
-                    Toast.makeText(this.context, "댓글이 등록되었습니다.", Toast.LENGTH_SHORT).show()
-                    recyclerviewcomment(Common.select_video?.id)
-                } else {
-//                    Toast.makeText(this.context, message, Toast.LENGTH_SHORT).show()
-                }
+                edit_comment.setText("")
+                Toast.makeText(this.context, "댓글이 등록되었습니다.", Toast.LENGTH_SHORT).show()
+                recyclerviewcomment(Common.select_video?.id)
             })
     }
 
-    private fun recyclerviewcomment(id:Int?){
+    private fun recyclerviewcomment(id: Int?) {
 
-        compositeDisposable.add(CommentAPI.commentdata(id)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ CommentItem ->
-                Log.d("댓글",CommentItem.toString())
-                txt_comment.text = StringBuilder("댓글(")
-                    .append(CommentItem.size)
-                    .append(")")
-                comment_recyclerview.layoutManager = LinearLayoutManager(context)
-                comment_recyclerview.adapter = CommentAdapter(activity,CommentItem)
-            },
-                {thr ->
-                    Toast.makeText(activity,""+thr.message,Toast.LENGTH_SHORT).show()
+        compositeDisposable.add(
+            myAPI.commentdata(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ CommentItem ->
+                    Log.d("댓글", CommentItem.toString())
+                    txt_comment.text = StringBuilder("댓글(")
+                        .append(CommentItem.size)
+                        .append(")")
+                    comment_recyclerview.layoutManager = LinearLayoutManager(context)
+                    comment_recyclerview.adapter = CommentAdapter(activity, CommentItem)
+                    comment_recyclerview.setHasFixedSize(true)
 
-                }))
+
+                },
+                    { thr ->
+                        Toast.makeText(activity, "" + thr.message, Toast.LENGTH_SHORT).show()
+
+                    })
+        )
 
     }
 
 
     private fun deleteVideofile(id: Int?) {
         compositeDisposable.add(
-            VideoAPI.deleteFile(id)
+            myAPI.deleteFile(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ message ->
@@ -237,14 +240,5 @@ class DetailFragment : Fragment() {
 
     }
 
-    private fun UserInfo(name: String) {
-        compositeDisposable.add(CommentAPI.userInfo(name)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { message ->
-                Log.d("userinfo", message.toString())
-
-            })
-    }
 
 }

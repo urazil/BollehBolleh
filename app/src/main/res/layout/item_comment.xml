@@ -10,14 +10,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="작성자: "
-            android:textSize="30dp"/>
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/text_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="하이하이"
-            android:textSize="20dp"
+            android:textSize="30dp"
             />
 
         <TextView
@@ -26,5 +26,6 @@
             android:layout_height="wrap_content"
             android:gravity="right"
             android:text="작성시간" />
+
 
     </LinearLayout>

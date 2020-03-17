@@ -4,7 +4,7 @@ import com.example.kotlinnodejsauth.data.Video
 import ss.com.bannerslider.adapters.SliderAdapter
 import ss.com.bannerslider.viewholder.ImageSlideViewHolder
 
-class MainSliderAdapter(private val VideoList:List<Video>): SliderAdapter() {
+class MainSliderAdapter(private val VideoList: List<Video>) : SliderAdapter() {
     override fun getItemCount(): Int {
         return VideoList.size
     }

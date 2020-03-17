@@ -1,65 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E63D3D44"
+    tools:context=".EditVideoPage">
+
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".EditVideoPage">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="영상 볼래?"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:background="#f18867"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-        <ScrollView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/edit_ssumnail_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="영상 제목을 입력하세요" />
 
-                <EditText
-                    android:id="@+id/edit_ssumnail_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="영상 제목을 입력하세요" />
+            <ImageView
+                android:id="@+id/edit_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:src="@android:drawable/ic_menu_camera" />
 
-                <ImageView
-                    android:id="@+id/edit_image_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:src="@android:drawable/ic_menu_camera"
-                    />
+            <VideoView
+                android:id="@+id/edit_video_view"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="30dp"
 
-                <VideoView
-                    android:id="@+id/edit_video_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_marginTop="30dp"
+                />
 
-                    />
+            <EditText
+                android:id="@+id/edit_video_contents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:hint="내용은 100자 이내로 작성하세요" />
 
-                <EditText
-                    android:id="@+id/edit_video_contents"
-                    android:layout_width="match_parent"
-                    android:layout_height="358dp"
-                    android:layout_marginTop="20dp"
-                    android:ems="10"
-                    android:hint="내용은 100자 이내로 작성하세요" />
-
-                <Button
-                    android:id="@+id/edit_btn_upload"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:background="#14385A"
-                    android:text="수정완료" />
-            </LinearLayout>
-        </ScrollView>
+            <Button
+                android:id="@+id/edit_btn_upload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/button_background"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:text="수정완료" />
+        </LinearLayout>
+    </ScrollView>
 
 
-    </LinearLayout>
+</LinearLayout>

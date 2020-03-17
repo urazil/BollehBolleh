@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".UploadPage"
+    tools:context=".UploadPicPage"
     android:background="#E63D3D44">
 
     <TextView
@@ -13,11 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="영상 볼래?"
+        android:text="사진 볼래?"
         android:textColor="#000000"
         android:textSize="30sp"
-        android:background="#f18867"
-         />
+        android:background="#20639B"
+        />
 
 
     <ScrollView
@@ -33,32 +33,23 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/ssumnail_title"
+                android:id="@+id/pic_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="영상 제목을 입력하세요" />
+                android:hint="사진 제목을 입력하세요" />
 
             <ImageView
-                android:id="@+id/image_view"
+                android:id="@+id/pic_image_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:layout_marginTop="10dp"
                 android:src="@android:drawable/ic_menu_camera" />
 
-            <VideoView
-                android:id="@+id/video_view"
-
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginTop="30dp"
-
-                />
-
             <EditText
-                android:id="@+id/video_contents"
+                android:id="@+id/pic_contents"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -67,7 +58,7 @@
                 android:hint="내용은 100자 이내로 작성하세요" />
 
             <Button
-                android:id="@+id/btn_upload"
+                android:id="@+id/pic_btn_upload"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"

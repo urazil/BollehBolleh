@@ -15,7 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".EditVideoPage"></activity>
+        <activity android:name=".UploadPicPage"></activity>
+        <activity android:name=".EditPicPage" />
+        <activity android:name=".Gallerypage" />
+        <activity android:name=".CommentEditBox" />
+        <activity
+            android:name=".edit_box"
+            android:label="@string/title_activity_edit_box"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".EditVideoPage" />
         <activity android:name=".UploadPage" />
         <activity android:name=".LandingPage" />
         <activity android:name=".Startpage">

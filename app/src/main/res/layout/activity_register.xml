@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E63D3D44"
     tools:context=".register">
 
     <TextView
@@ -11,9 +12,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text=" VideoTube"
-        android:textColor="#E91E63"
-        android:textSize="50sp"
+        android:text="볼래볼래?"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:background="#f18867"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,62 +26,87 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="20dp"
-            android:src="@drawable/youtube_title_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textColor="#D604F7"
             android:text="회원 가입"
+            android:layout_marginBottom="30dp"
+            android:textColor="#F2F5F8"
             android:textSize="40sp" />
-
-        <EditText
-            android:id="@+id/edt_email1"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="  이메일"
-            android:inputType="textEmailAddress"
-            android:textColor="#FFFFFF"
-             />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/edt_password1"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <AutoCompleteTextView
+                    android:id="@+id/edt_email1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint=" 이메일"
+                    android:textStyle="bold"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true" />
+
+            </LinearLayout>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="  비밀번호"
-            android:inputType="textPassword"
-            />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/edt_password2"
+            <EditText
+                android:id="@+id/edt_password1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=" 비밀번호"
+                android:inputType="textPassword"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="  비밀번호확인"
-            android:inputType="textPassword"/>
+            android:layout_height="wrap_content">
 
+            <EditText
+                android:id="@+id/edt_password2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=" 비밀번호 확인"
+                android:inputType="textPassword"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:singleLine="true" />
 
-
-        <EditText
-            android:id="@+id/edt_name1"
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="  이름"
-            android:inputType="text"
-            android:layout_marginBottom="20dp"/>
+            android:layout_height="wrap_content">
 
+            <EditText
+                android:id="@+id/edt_name1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=" 이름"
+                android:inputType="text"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,18 +115,16 @@
             android:weightSum="1">
 
             <Button
-                android:id="@+id/register_button"
-                android:layout_width="0dp"
+                android:id="@+id/register_complete_btn"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:layout_weight="1"
+                android:layout_marginTop="40dp"
+                android:text="가입 완료"
+                android:textSize="23sp"
+                android:textColor="#000000"
                 android:background="@drawable/button_background"
-                android:text="회원가입 하기"
 
-                android:textSize="20sp" />
-
-
-
+                />
 
         </LinearLayout>
 

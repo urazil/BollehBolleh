@@ -9,10 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlinnodejsauth.Common.Common
-import com.example.kotlinnodejsauth.Retrofit.VideoAPI
+import com.example.kotlinnodejsauth.Retrofit.ServiceApi
 import com.example.kotlinnodejsauth.Service.PicassoImageLoadingService
 //import com.example.kotlinnodejsauth.adapter.FeedAdapter
 import com.example.kotlinnodejsauth.adapter.MyVideoAdapter
@@ -28,8 +27,8 @@ import java.lang.StringBuilder
  */
 class FeedFragment : Fragment() {
 
-     var compositeDisposable = CompositeDisposable()
-    lateinit var VideoAPI: VideoAPI
+    var compositeDisposable = CompositeDisposable()
+    lateinit var myAPI: ServiceApi
 
     override fun onStop() {
         super.onStop()
@@ -42,15 +41,13 @@ class FeedFragment : Fragment() {
     ): View? {
 
         //Init API
-        VideoAPI = Common.api
+        myAPI = Common.serviceapi
 
 
 
 
 
         Slider.init(PicassoImageLoadingService(this))
-
-
 
 
         // Inflate the layout for this fragment
@@ -62,57 +59,56 @@ class FeedFragment : Fragment() {
 
 
 
-//        val dataSetSample = mutableListOf<DummyItem>()
-//        for (i in 1..10) {
-//            dataSetSample.add(DummyItem(i.toString(),"sample title $i", R.drawable.sample))
-//        }
 
 
-            swipe_refresh.setColorSchemeResources(R.color.colorPrimary,android.R.color.holo_orange_dark,android.R.color.background_dark)
-            swipe_refresh.setOnRefreshListener {
-                if(Common.isConnectedToInternet(activity))
-                {
-                    fetchVideo()
-                }
-                else {
-                    Toast.makeText(context,"pleas check your connection",Toast.LENGTH_SHORT).show()
-                }
-
+        swipe_refresh.setColorSchemeResources(
+            R.color.colorPrimary,
+            android.R.color.holo_orange_dark,
+            android.R.color.background_dark
+        )
+        swipe_refresh.setOnRefreshListener {
+            if (Common.isConnectedToInternet(activity)) {
+                fetchVideo()
+            } else {
+                Toast.makeText(context, "pleas check your connection", Toast.LENGTH_SHORT).show()
             }
 
-//            Default , load first time
-          swipe_refresh.post(Runnable  {
-                if(Common.isConnectedToInternet(activity)) {
-                            fetchVideo()
-                } else {
-                    Toast.makeText(context,"pleas check your connection",Toast.LENGTH_SHORT).show()
-                }
-            })
-//            adapter = FeedAdapter(dataSetSample)
-        upload_page_button.setOnClickListener{
+        }
+
+
+        upload_page_button.setOnClickListener {
             val Intent = Intent(context, UploadPage::class.java)
             startActivity(Intent)
         }
 
+        pic_gallery_btn.setOnClickListener {
+            val gallerypageintet = Intent(context, UploadPage::class.java)
+            startActivity(gallerypageintet)
         }
 
 
-    private fun fetchVideo() {
-       compositeDisposable.add(VideoAPI.videoList
-           .subscribeOn(Schedulers.io())
-           .observeOn(AndroidSchedulers.mainThread())
-           .subscribe({ videoList ->
-               Log.d("메인 비디오",videoList.toString())
-               txt_video.text = StringBuilder("New Video(")
-                   .append(videoList.size)
-                   .append(")")
-               recycler_video.layoutManager = LinearLayoutManager(context)
-                recycler_video.adapter = MyVideoAdapter(activity,videoList)
-           },
-               {thr ->
-                   Toast.makeText(activity,""+thr.message,Toast.LENGTH_SHORT).show()
 
-               }))
+    }
+
+
+    private fun fetchVideo() {
+        compositeDisposable.add(
+            myAPI.videoList
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ videoList ->
+                    Log.d("메인 비디오", videoList.toString())
+                    txt_video.text = StringBuilder("New Video(")
+                        .append(videoList.size)
+                        .append(")")
+                    recycler_video.layoutManager = LinearLayoutManager(context)
+                    recycler_video.adapter = MyVideoAdapter(activity, videoList)
+                },
+                    { thr ->
+                        Toast.makeText(activity, "" + thr.message, Toast.LENGTH_SHORT).show()
+
+                    })
+        )
 
     }
 

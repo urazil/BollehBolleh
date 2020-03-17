@@ -10,43 +10,46 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.IOException
 
-class ProgressRequestBody(private val mFile: File, private val mListener: UploadPage):RequestBody(){
+class ProgressRequestBody(private val mFile: File, private val mListener: UploadPage) :
+    RequestBody() {
 
-    interface UploadCallbacks{
-        fun onProgressUpdate(percentage:Int)
+    interface UploadCallbacks {
+        fun onProgressUpdate(percentage: Int)
     }
 
     override fun contentType(): MediaType? {
-        return  MediaType.parse("image/*")
-//        return  MediaType.parse("video/*")
+        return MediaType.parse("image/*")
     }
-      @Throws(IOException::class)
+
+    @Throws(IOException::class)
     override fun contentLength(): Long {
         return mFile.length()
     }
+
     @Throws(IOException::class)
     override fun writeTo(sink: BufferedSink?) {
-    val fileLength = mFile.length()
+        val fileLength = mFile.length()
         val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
         val `in` = FileInputStream(mFile)
-        var uploaded:Long = 0
-        try{
-            var read:Int = 0
+        var uploaded: Long = 0
+        try {
+            var read: Int = 0
             val handler = Handler(Looper.getMainLooper())
-            while (`in`.read(buffer).let{ read  = it ; it != -1 })
-            {
-                handler.post(ProgressUpdater(uploaded,fileLength))
+            while (`in`.read(buffer).let { read = it; it != -1 }) {
+                handler.post(ProgressUpdater(uploaded, fileLength))
                 uploaded += read.toLong()
-                sink!!.write(buffer,0,read)
+                sink!!.write(buffer, 0, read)
 
             }
-        }finally {
+        } finally {
             `in`.close()
         }
     }
-   private inner class ProgressUpdater(private  val mUploaded:Long, private  val mTotal:Long)  :Runnable{
-       override fun run(){
-           mListener.onProgressUpdate((100*mUploaded/mTotal).toInt())
-       }
-   }
+
+    private inner class ProgressUpdater(private val mUploaded: Long, private val mTotal: Long) :
+        Runnable {
+        override fun run() {
+            mListener.onProgressUpdate((100 * mUploaded / mTotal).toInt())
+        }
+    }
 }

@@ -38,6 +38,10 @@ class MyVideoAdapter( internal val context: Context?, internal val videoList:Lis
 
             }
 
+            override fun onLongClick(view: View, Position: Int) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
         })
     }
 
@@ -47,9 +51,9 @@ class MyVideoAdapter( internal val context: Context?, internal val videoList:Lis
        internal var video_name : TextView
        internal lateinit var iRecyclerOnClick: IRecyclerOnClick
 
-       fun setClick(iRecyclerOnClick: IRecyclerOnClick){
-           this.iRecyclerOnClick = iRecyclerOnClick
-       }
+        fun setClick(iRecyclerOnClick: IRecyclerOnClick) {
+            this.iRecyclerOnClick = iRecyclerOnClick
+        }
 
        init{
            video_image = itemView.findViewById(R.id.video_image) as ImageView

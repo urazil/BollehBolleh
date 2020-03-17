@@ -3,7 +3,6 @@ package com.example.kotlinnodejsauth.util
 import android.os.Handler
 import android.os.Looper
 import com.example.kotlinnodejsauth.EditVideoPage
-import com.example.kotlinnodejsauth.UploadPage
 import okhttp3.MediaType
 import okhttp3.RequestBody
 import okio.BufferedSink
@@ -11,7 +10,7 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.IOException
 
-class ProgressRequestBody2(private val mFile: File, private val mListener2: EditVideoPage) :
+class ProgressRequestBody3(private val mFile: File, private val mListener3: EditVideoPage) :
     RequestBody() {
 
     interface UploadCallbacks {
@@ -20,7 +19,6 @@ class ProgressRequestBody2(private val mFile: File, private val mListener2: Edit
 
     override fun contentType(): MediaType? {
         return MediaType.parse("image/*")
-//        return  MediaType.parse("video/*")
     }
 
     @Throws(IOException::class)
@@ -51,7 +49,7 @@ class ProgressRequestBody2(private val mFile: File, private val mListener2: Edit
     private inner class ProgressUpdater(private val mUploaded: Long, private val mTotal: Long) :
         Runnable {
         override fun run() {
-            mListener2.onProgressUpdate((100 * mUploaded / mTotal).toInt())
+            mListener3.onProgressUpdate((100 * mUploaded / mTotal).toInt())
         }
     }
 }

@@ -16,6 +16,6 @@ class Startpage : AppCompatActivity() {
         Handler().postDelayed({
             startActivity(Intent(this@Startpage, MainActivity::class.java))
 
-        },2000)
+        }, 2000)
     }
 }

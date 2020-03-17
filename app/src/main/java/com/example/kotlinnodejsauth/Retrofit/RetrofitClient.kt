@@ -6,32 +6,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
 object RetrofitClient {
-    private  var ourInstance:Retrofit?=null
-    private  var retrofit:Retrofit?=null
 
-    fun getClient(baseUrl:String):Retrofit{
-        if(retrofit == null)
-        {
-            retrofit = Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .build()
+    private const val BaseURL = "http://10.0.2.2:3000/"
+    private var retrofit: Retrofit? = null
+
+    val instance: Retrofit
+        get() {
+            if (retrofit == null)
+                retrofit = Retrofit.Builder()
+                    .baseUrl(BaseURL)
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(ScalarsConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+            return retrofit!!
         }
-        return retrofit!!
-    }
-
-    val instance : Retrofit
-    get(){
-        if(ourInstance == null)
-            ourInstance = Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:3000/")
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).addConverterFactory(ScalarsConverterFactory.create()).addConverterFactory(GsonConverterFactory.create())
-                .build()
-        return  ourInstance!!
-    }
-
-
-
 
 
 }

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E63D3D44"
+    android:orientation="vertical"
+    tools:context=".Gallerypage">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="사진 볼래?"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:background="#20639B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="New Image"
+        android:textSize="20sp"
+        android:textColor="#20639B"
+        android:layout_marginBottom="7dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="492dp" />
+
+
+    <Button
+        android:id="@+id/pic_upload_page_button"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:textColor="#000000"
+        android:text="사진 올리기"
+        android:textStyle="bold"
+   />
+
+    <Button
+        android:id="@+id/video_gallery_btn"
+        android:layout_width="411dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:text="영상 볼래?로 가기"
+        android:textColor="#000000">
+
+    </Button>
+
+</LinearLayout>
