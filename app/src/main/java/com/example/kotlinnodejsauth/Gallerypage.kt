@@ -13,14 +13,11 @@ class Gallerypage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gallerypage)
 
-        val photo = arrayListOf<Photo>()
-        for (i in 0 .. 10 ){
-            photo.add(Photo())
-        }
+
 
 
         pic_upload_page_button.setOnClickListener {
-            val editpic = Intent(this, FeedFragment::class.java)
+            val editpic = Intent(this, UploadPicPage::class.java)
             startActivity(editpic)
         }
 

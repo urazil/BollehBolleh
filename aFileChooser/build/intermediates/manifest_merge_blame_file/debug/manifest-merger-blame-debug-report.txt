@@ -17,9 +17,9 @@
 17<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 18    package="com.ipaulpro.afilechooser" > <!-- <uses-sdk android:minSdkVersion="20" /> -->
 19    <uses-sdk
-20        android:minSdkVersion="7"
+20        android:minSdkVersion="19"
 20-->C:\Users\LG\AndroidStudioProjects\KotlinNodeJSAuth\aFileChooser\src\main\AndroidManifest.xml
-21        android:targetSdkVersion="28" />
+21        android:targetSdkVersion="29" />
 21-->C:\Users\LG\AndroidStudioProjects\KotlinNodeJSAuth\aFileChooser\src\main\AndroidManifest.xml
 22
 23</manifest>

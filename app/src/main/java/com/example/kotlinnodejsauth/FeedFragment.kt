@@ -82,7 +82,7 @@ class FeedFragment : Fragment() {
         }
 
         pic_gallery_btn.setOnClickListener {
-            val gallerypageintet = Intent(context, UploadPage::class.java)
+            val gallerypageintet = Intent(context, Gallerypage::class.java)
             startActivity(gallerypageintet)
         }
 

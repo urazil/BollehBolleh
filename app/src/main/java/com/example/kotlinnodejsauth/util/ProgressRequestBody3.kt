@@ -13,6 +13,8 @@ import java.io.IOException
 class ProgressRequestBody3(private val mFile: File, private val mListener3: EditVideoPage) :
     RequestBody() {
 
+
+
     interface UploadCallbacks {
         fun onProgressUpdate(percentage: Int)
     }
