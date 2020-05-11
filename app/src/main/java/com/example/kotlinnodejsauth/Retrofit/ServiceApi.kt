@@ -1,105 +1,46 @@
 package com.example.kotlinnodejsauth.Retrofit
 
 import com.example.kotlinnodejsauth.data.CommentItem
+import com.example.kotlinnodejsauth.data.Photo
 import com.example.kotlinnodejsauth.data.Video
 import io.reactivex.Observable
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
 
-interface ServiceApi {
+interface ServiceApi{
 
-    @POST("Comment")
-    @FormUrlEncoded
-    fun CommentFile(
-        @Field("id") id:Int?,
-        @Field("Comment") Comment: String?,
-        @Field("email") email:String?,
-        @Field("name") name: String?): Observable<String>
-
-
-
-    @get:GET("commentdata")
-    val commentList: Observable<List<CommentItem>>
-    @GET("commentdata/{id}")
-    fun commentdata(@Path("id") id: Int?): Observable<List<CommentItem>>
-
-
-    @POST("editComment")
-    @FormUrlEncoded
-    fun editcomment(
-        @Field("idxx") idxx:Int?,
-        @Field("id") id:Int?,
-        @Field("Comment") Comment : String?,
-        @Field("email") email: String?,
-        @Field("name") name : String?,
-        @Field("date")date: String?): Observable<String>
-
-    @POST("deletecomment")
-    @FormUrlEncoded
-    fun deletecomment(
-        @Field("idxx") idxx:Int?): Observable<String>
-
+    //사진볼래 게시물 등록
     @Multipart
-    @POST("profile")
-    fun uploadFile(
-        @Part("title") title:String,
-        @Part file: MultipartBody.Part,
-        @Part file2: MultipartBody.Part,
-        @Part("contents") contents:String): Call<String>
+    @POST("picturedata")
+    fun uploadPicFile(
+        @Part("pictitle") pictitle:String?,
+        @Part files : ArrayList<MultipartBody.Part>,
+        @Part ("piccontents") piccontents: String?): Call<String>
 
-    @get:GET("videodata")
-    val videoList: Observable<List<Video>>
 
-    @POST("deletevideo")
+    //사진볼래 게시물 가져오기
+    @get:GET("photodata")
+    val photoList: Observable<List<Photo>>
+
+
+    //사진볼래 게시물 삭제
+    @POST("deletephoto")
     @FormUrlEncoded
-    fun deleteFile(
+    fun deletePhotoFile(
         @Field("id")
         id: Int?
     ): Observable<String>
 
+    //사진볼래 게시물 삭제
     @Multipart
-    @POST("editvideo")
-    fun editFile(
-        @Part("title") title: String,
-        @Part file: MultipartBody.Part,
-        @Part file2: MultipartBody.Part,
-        @Part("contents") contents: String,
+    @POST("editpicturedata")
+    fun editPicFile(
+        @Part("pictitle") pictitle:String?,
+        @Part files : ArrayList<MultipartBody.Part>,
+        @Part ("piccontents") piccontents : String?,
         @Part("id") id: Int
     ): Call<String>
 
-    @POST("register")
-    @FormUrlEncoded
-    fun registerUser(
-        @Field("email") email: String,
-        @Field("name") name: String,
-        @Field("password") password: String
-    ): Observable<String>
-
-    @POST("login")
-    @FormUrlEncoded
-    fun loginUser(
-        @Field("email") email: String,
-        @Field("password") password: String
-    ): Observable<String>
-
-    @POST("user")
-    @FormUrlEncoded
-    fun userInfoemail(
-        @Field("email") email: String?):
-            Observable<String>
-
-    @POST("user")
-    @FormUrlEncoded
-    fun userInfoname(@Field("name") id: String?):
-            Observable<String>
-
-
-
-
-
-
-
 
 }
-

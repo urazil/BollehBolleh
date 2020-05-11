@@ -10,6 +10,16 @@ object RetrofitClient {
     private const val BaseURL = "http://10.0.2.2:3000/"
     private var retrofit: Retrofit? = null
 
+    fun getClient(baseUrl: String): Retrofit {
+        if (retrofit == null) {
+            retrofit = Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .build()
+        }
+        return retrofit!!
+    }
+
     val instance: Retrofit
         get() {
             if (retrofit == null)
