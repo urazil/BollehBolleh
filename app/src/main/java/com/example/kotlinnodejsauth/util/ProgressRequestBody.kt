@@ -1,8 +1,7 @@
-package com.example.kotlinnodejsauth.util
+package com.example.takenotes.Utils
 
 import android.os.Handler
 import android.os.Looper
-import com.example.kotlinnodejsauth.UploadPage
 import okhttp3.MediaType
 import okhttp3.RequestBody
 import okio.BufferedSink
@@ -10,7 +9,7 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.IOException
 
-class ProgressRequestBody(private val mFile: File, private val mListener: UploadPage) :
+class ProgressRequestBody(private val mFile: File, private val mListener: UploadCallbacks) :
     RequestBody() {
 
     interface UploadCallbacks {
@@ -39,7 +38,6 @@ class ProgressRequestBody(private val mFile: File, private val mListener: Upload
                 handler.post(ProgressUpdater(uploaded, fileLength))
                 uploaded += read.toLong()
                 sink!!.write(buffer, 0, read)
-
             }
         } finally {
             `in`.close()
@@ -51,5 +49,6 @@ class ProgressRequestBody(private val mFile: File, private val mListener: Upload
         override fun run() {
             mListener.onProgressUpdate((100 * mUploaded / mTotal).toInt())
         }
+
     }
 }
