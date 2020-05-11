@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#464545"
+    tools:context=".ChatPage" android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="your name"
+        android:layout_margin="16dp"
+        android:padding="15dp"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:ems="10"
+        android:background="@drawable/textview_design"
+        android:id="@+id/personname"
+       />
+    <Button
+        android:text="채팅 입장하기"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chat_enter"/>
+</LinearLayout>
+
+

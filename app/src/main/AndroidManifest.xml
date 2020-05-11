@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kotlinnodejsauth">
-
+    <!-- 인터넷 연결 허용하는 퍼미션 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-permission android:name="android.permission.CAMERA" />  <!--  카메라 사용 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />  <!-- 사용자 휴대폰의 저장소를 사용할수 있는 퍼미션 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 사용자 휴대폰의 저장소를 사용할수 있는 퍼미션 -->
 
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -19,14 +21,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".UploadPicPage"></activity>
-
-        <activity android:name=".Gallerypage" />
+        <activity android:name=".ChatRoom" />
+        <activity android:name=".GalleryCommentEditBox" />
+        <activity android:name=".DetailVideo" />
+        <activity android:name=".LandingPage" />
+        <activity android:name=".VideoPage" />
+        <activity android:name=".modify_password" />
+        <activity android:name=".modify_name" />
+        <activity android:name=".My_info" />
+        <activity android:name=".DetailGallery" />
+        <activity android:name=".EditPhotoPage" />
+        <activity android:name=".UploadPicPage" />
+        <activity android:name=".GalleryPage" />
         <activity android:name=".CommentEditBox" />
-
         <activity android:name=".EditVideoPage" />
         <activity android:name=".UploadPage" />
-        <activity android:name=".LandingPage" />
         <activity android:name=".Startpage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +44,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".register"
+            android:name=".Register"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -56,10 +65,16 @@
                 <data android:mimeType="*/*" />
             </intent-filter>
         </activity>
-        <activity android:name="com.gun0912.tedpicker.ImagePickerActivity"
-            android:screenOrientation="portrait"
-            />
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.KotlinNodeJSAuth.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

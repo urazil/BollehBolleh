@@ -7,12 +7,14 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
+import com.example.kotlinnodejsauth.Retrofit.IUploadAPI
 import com.example.kotlinnodejsauth.Retrofit.RetrofitClient
-import com.example.kotlinnodejsauth.Retrofit.ServiceApi
-import com.example.kotlinnodejsauth.util.ProgressRequestBody
+import com.example.takenotes.Utils.ProgressRequestBody
 import com.ipaulpro.afilechooser.utils.FileUtils
 import kotlinx.android.synthetic.main.activity_upload_page.*
 import okhttp3.MultipartBody
@@ -24,48 +26,66 @@ class UploadPage : AppCompatActivity(), ProgressRequestBody.UploadCallbacks {
         dialog.progress = percentage
     }
 
-    val BASE_URL = "http://10.0.2.2:3000/"
-
+    val BASE_URL = "http://localhost:3000/"
+    val apiUpload: IUploadAPI
+        get() = RetrofitClient.getClient(BASE_URL).create(IUploadAPI::class.java)
     private val PERMISSION_REQUEST: Int = 1000
     private val PICK_IMAGE_REQUEST: Int = 1001
     private val PICK_VIDEO_REQUEST: Int = 1002
-
-    lateinit var mService: ServiceApi
-
+    lateinit var mService: IUploadAPI
     private var selectedFileUri: Uri? = null
     private var selectedvideo: Uri? = null
-
     lateinit var dialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_upload_page)
 
+        //툴바 생성
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        val ab = supportActionBar!!
+        ab.setDisplayShowTitleEnabled(false)
+        //툴바 뒤로가기 기능
+        ab.setDisplayHomeAsUpEnabled(true)
 
-        if (ActivityCompat.checkSelfPermission(this,Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+        //영상내용쓰는 edittext 여러줄 기능
+        video_contents.setHorizontallyScrolling(false)
+
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) != PackageManager.PERMISSION_GRANTED
         )
-            ActivityCompat.requestPermissions(this,arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),PERMISSION_REQUEST
+            ActivityCompat.requestPermissions(
+                this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), PERMISSION_REQUEST
             )
 
-        // 서비스
+        // Init API
+        mService = apiUpload
 
-        image_view.setOnClickListener {
-            chooseImage()
+        //영상볼래 썸네일 사진등록 버튼
+        image_view.setOnClickListener { chooseImage() }
 
-        }
+        //영상볼래 영상등록 버튼 클릭시
+        video_view.setOnClickListener { chooseVideo() }
 
-        video_view.setOnClickListener {
-            chooseVideo()
-
-        }
-
-
-
-
+        //영상 볼래 게시물등록 버튼 클릭시
         btn_upload.setOnClickListener { uploadFile() }
-
-
     }
+
+    //툴바 뒤로가기클릭시 기능
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        when (id) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 
     private fun uploadFile() {
         if (selectedFileUri != null) {
@@ -81,14 +101,13 @@ class UploadPage : AppCompatActivity(), ProgressRequestBody.UploadCallbacks {
             val file1 = FileUtils.getFile(this, selectedvideo)
             val requestFile = ProgressRequestBody(file, this@UploadPage)
             val requestFile1 = ProgressRequestBody(file1, this@UploadPage)
-
             val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
             val body2 = MultipartBody.Part.createFormData("file", file1.name, requestFile1)
 
             Thread(Runnable {
 
                 mService.uploadFile(
-                    ssumnail_title.text.toString(),body,body2,video_contents.text.toString()
+                    ssumnail_title.text.toString(), body, body2, video_contents.text.toString()
                 )
                     .enqueue(object : retrofit2.Callback<String> {
                         override fun onFailure(call: Call<String>, t: Throwable) {
@@ -168,9 +187,9 @@ class UploadPage : AppCompatActivity(), ProgressRequestBody.UploadCallbacks {
             PERMISSION_REQUEST -> {
                 //카메라 권한이 허용된 경우
                 if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                    Toast.makeText(this, "Granted", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "허용", Toast.LENGTH_SHORT).show()
                 else
-                    Toast.makeText(this, "Denied", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "거부", Toast.LENGTH_SHORT).show()
             }
         }
     }

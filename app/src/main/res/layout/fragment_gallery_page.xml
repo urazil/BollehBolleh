@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#464545"
+    tools:context=".GalleryPage">
+
+
+
+
+
+    <TextView
+        android:id="@+id/txt_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="5dp"
+        android:text="New IMAGE"
+        android:textSize="20sp"
+        android:textColor="#20639B"
+        android:layout_marginBottom="7dp"
+        />
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_photo"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:layout_marginBottom="20dp"/>
+
+
+    <Button
+        android:id="@+id/pic_upload_page_button"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:textColor="#000000"
+        android:layout_marginBottom="20dp"
+        android:text="사진 올리기"
+        android:textStyle="bold"
+        />
+
+</LinearLayout>

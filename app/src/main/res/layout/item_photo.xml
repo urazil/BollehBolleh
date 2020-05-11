@@ -1,48 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_marginLeft="10dp"
-    android:layout_marginBottom="10dp"
-    android:layout_height="match_parent">
+    android:layout_height="250dp"
+    android:padding="8dp">
 
-    <ImageView
-        android:id="@+id/img_photo"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:padding="8dp"
-        android:scaleType="centerCrop"
-        app:srcCompat="@mipmap/ic_launcher"/>
+        android:layout_height="match_parent"
+        app:cardCornerRadius="8dp">
 
-    <ImageView
-        android:id="@+id/img_photo2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:padding="8dp"
-        android:scaleType="centerCrop"
-        app:srcCompat="@mipmap/ic_launcher"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/img_photo3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:padding="8dp"
-        android:scaleType="centerCrop"
-        app:srcCompat="@mipmap/ic_launcher"/>
+            <ImageView
+                android:id="@+id/photo_image"
+                android:layout_width="match_parent"
+                android:layout_height="193dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:scaleType="fitXY"
 
-    <ImageView
-        android:id="@+id/img_photo4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:padding="8dp"
-        android:scaleType="centerCrop"
-        app:srcCompat="@mipmap/ic_launcher"/>
+                />
 
+            <TextView
+                android:id="@+id/photo_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#80333639"
+                android:padding="8dp"
+                android:text=" "
 
+                />
 
-</LinearLayout>
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

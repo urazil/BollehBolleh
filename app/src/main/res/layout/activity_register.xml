@@ -4,21 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E63D3D44"
-    tools:context=".register">
+    android:background="#464545"
+    tools:context=".Register">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="볼래볼래?"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        android:background="#f18867"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="#E91E63"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:ignore="MissingConstraints">
+
+
+        <TextView
+            android:fontFamily="@font/mainfont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/AppName"
+            android:layout_gravity="center"
+            android:text="회 원 가 입"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -28,17 +41,10 @@
         android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="회원 가입"
-            android:layout_marginBottom="30dp"
-            android:textColor="#F2F5F8"
-            android:textSize="40sp" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

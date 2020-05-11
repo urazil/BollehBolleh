@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".DetailVideo">
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#464545">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#f18867"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                tools:ignore="MissingConstraints">
+
+
+                <TextView
+                    android:fontFamily="@font/mainfont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/AppName"
+                    android:layout_gravity="center"
+                    android:text="영상 Bolleh?"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"/>
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <TextView
+                android:id="@+id/video_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="영상 제목"
+                android:textSize="35dp" />
+
+            <VideoView
+                android:id="@+id/vv_video"
+                android:layout_width="match_parent"
+                android:layout_height="233dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/gradation"/>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="영상 내용"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_destination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="영상 내용 나오는 곳"
+                android:textSize="24sp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/video_modify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_background"
+                    android:textColor="#000000"
+                    android:text="수정하기" />
+
+                <Button
+                    android:id="@+id/video_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/delete"
+                    android:textColor="#000000"
+                    android:text="삭제하기"
+                    />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/gradation"/>
+
+
+            <TextView
+                android:id="@+id/txt_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="댓글"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/edit_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="댓글을 입력하세요."
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/comment_upload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@drawable/datgleedit"
+                android:textColor="#000000"
+                android:text="댓글 작성완료" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/comment_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="344dp" />
+        </LinearLayout>
+    </ScrollView>

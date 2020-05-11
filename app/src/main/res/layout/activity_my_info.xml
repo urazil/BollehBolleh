@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#464545"
+    android:orientation="vertical"
+    tools:context=".My_info">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E91E63"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:ignore="MissingConstraints">
+
+
+        <TextView
+            android:fontFamily="@font/mainfont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/AppName"
+            android:layout_gravity="center"
+            android:text="내 정 보"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView117"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="30dp"
+            android:textColor="#8BC34A"
+            android:text="이메일"
+            />
+
+        <TextView
+            android:id="@+id/myInfo_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF"
+            android:text="TextView"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView115"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="30dp"
+            android:text="닉네임"
+            android:textColor="#8BC34A"
+        />
+
+        <TextView
+            android:id="@+id/myInfo_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="20dp"
+            android:textColor="#FFFFFF"
+            android:text="TextView"
+            />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#E91E63"
+            android:text="    닉네임 클릭시 변경이 가능합니다 (이메일 변경 불가)" />
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/modify_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:text="비밀번호 재설정" />
+
+        <Button
+            android:id="@+id/membership_withdrawal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="탈퇴하기" />
+    </LinearLayout>
+
+
+</LinearLayout>

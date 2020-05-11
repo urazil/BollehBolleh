@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#464545"
+    android:id="@+id/Photo_page"
+    android:orientation="vertical"
+    tools:context=".EditPhotoPage">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#20639B"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:ignore="MissingConstraints">
+
+
+        <TextView
+            android:fontFamily="@font/mainfont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/AppName"
+            android:layout_gravity="center"
+            android:text="사진 Bolleh?"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:textColor="#E71D36"
+                android:gravity="center"
+                android:text="사진제목 등록" />
+
+
+            <EditText
+                android:id="@+id/edit_picture_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="수정할 사진 제목을 입력하세요" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/gradation"/>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="#E71D36"
+                android:gravity="center"
+                android:text="이미지 등록" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/edit_image1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/edit_image2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <ImageView
+                    android:id="@+id/edit_image3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:srcCompat="@tools:sample/avatars" />
+            </LinearLayout>
+
+            <ImageView
+
+                android:id="@+id/edit_pic_image_view"
+                android:layout_height="200dp"
+                android:layout_width="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                 android:background="@drawable/cameraicon"/>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#2196F3"
+                android:textSize="15dp"
+                android:text="카메라 버튼 클릭시 사진갤러리로 이동합니다." />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/gradation"/>
+
+            <EditText
+                android:id="@+id/edit_picture_contents"
+                android:inputType="textMultiLine"
+                android:gravity="top"
+                android:lines="8"
+                android:minLines="1"
+                android:maxLines="10"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:ems="10"
+                android:maxLength="100"
+                android:scrollbars="vertical"
+                android:scrollHorizontally="false"
+                android:hint="수정 할 내용은 100자 이내로 작성하세요" />
+
+            <Button
+                android:id="@+id/edit_pic_btn_upload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/button_background"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:text="수정완료" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
