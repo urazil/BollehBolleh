@@ -7,29 +7,32 @@ import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.example.kotlinnodejsauth.Common.Common
-import com.example.kotlinnodejsauth.Retrofit.ServiceApi
+import com.example.kotlinnodejsauth.Retrofit.CommentAPI
+import com.example.kotlinnodejsauth.data.User
 import com.google.gson.Gson
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_comment_edit_box.*
 
-class CommentEditBox : AppCompatActivity() {
+class  CommentEditBox : AppCompatActivity() {
 
-    lateinit var commentapi: ServiceApi
+    lateinit var commentapi: CommentAPI
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comment_edit_box)
 
-        commentapi = Common.serviceapi
+        commentapi = Common.apii
 
-
+        //댓글 수정 버튼 클릭시
         comment_edit.setOnClickListener {
             editcomment(Common.select_comment?.idxx, Common.select_comment?.id)
         }
+
+        //댓글 삭제 버튼 클릭시
         comment_delete.setOnClickListener {
             deletecomment(Common.select_comment?.idxx)
-            finish()
+
         }
 
 
@@ -44,10 +47,7 @@ class CommentEditBox : AppCompatActivity() {
         var gson = Gson()
         var UserDTO = gson.fromJson(userEmail, User::class.java)
 
-        commentapi.editcomment(
-            idxx, id, edittext_comment.text.toString(), UserDTO.email,
-            Common.select_comment?.name, Common.select_comment?.date
-        )
+        commentapi.editcomment(idxx, id, edittext_comment.text.toString(), UserDTO.email,Common.select_comment?.name, Common.select_comment?.date)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { message ->
@@ -68,13 +68,10 @@ class CommentEditBox : AppCompatActivity() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { message ->
-                Toast.makeText(
-                    this,
-                    "삭제하였습니다.",
-                    Toast.LENGTH_SHORT
-                ).show()
-
+                Toast.makeText(this,"삭제하였습니다.",Toast.LENGTH_SHORT).show()
+                finish()
             }
+
     }
 
 
