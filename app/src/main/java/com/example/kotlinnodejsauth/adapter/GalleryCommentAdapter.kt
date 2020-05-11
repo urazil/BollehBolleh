@@ -2,9 +2,9 @@ package com.example.kotlinnodejsauth.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.view.*
 import android.view.LayoutInflater
-
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -12,14 +12,13 @@ import com.example.kotlinnodejsauth.CommentEditBox
 import com.example.kotlinnodejsauth.Common.Common
 import com.example.kotlinnodejsauth.Interface.IRecyclerOnClick
 import com.example.kotlinnodejsauth.R
-
-import com.example.kotlinnodejsauth.data.User
 import com.example.kotlinnodejsauth.data.CommentItem
+import com.example.kotlinnodejsauth.data.GalleryCommentItem
+import com.example.kotlinnodejsauth.data.User
 import com.google.gson.Gson
 
-
-class CommentAdapter(internal val context: Context?, internal val commentList: List<CommentItem>) :
-    RecyclerView.Adapter<CommentAdapter.MyCommentViewHolder>() {
+class GalleryCommentAdapter (internal val context: Context?, internal val commentList: List<GalleryCommentItem>) :
+    RecyclerView.Adapter<GalleryCommentAdapter.MyCommentViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyCommentViewHolder {
@@ -38,14 +37,15 @@ class CommentAdapter(internal val context: Context?, internal val commentList: L
         p0.Comment_user.text = commentList[p1].name.toString()
         p0.Comment.text = commentList[p1].Comment.toString()
         p0.date.text = commentList[p1].date.toString()
+
         p0.setClick(object : IRecyclerOnClick {
             override fun onClcik(view: View, position: Int) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
-            //댓글 작성후 item 길게 클릭시
+            //사진볼래 댓글 작성후 길게 클릭시
             override fun onLongClick(view: View, Position: Int) {
-                Common.select_comment = commentList[Position]
+                Common.select_gallery_comment = commentList[Position]
 
 
                 val pref = view.context!!.getSharedPreferences("UserId", Context.MODE_PRIVATE)
@@ -62,8 +62,11 @@ class CommentAdapter(internal val context: Context?, internal val commentList: L
                 } else {
                     Toast.makeText(context, "작성자가 아닙니다.", Toast.LENGTH_SHORT).show()
                 }
+
             }
+
         })
+
     }
 
 
@@ -96,6 +99,8 @@ class CommentAdapter(internal val context: Context?, internal val commentList: L
 
 
     }
+
+
 
 
 }

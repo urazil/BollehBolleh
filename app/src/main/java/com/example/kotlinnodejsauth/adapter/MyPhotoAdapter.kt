@@ -2,42 +2,44 @@ package com.example.kotlinnodejsauth.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinnodejsauth.Common.Common
 import com.example.kotlinnodejsauth.DetailGallery
-import com.example.kotlinnodejsauth.DetailVideo
 import com.example.kotlinnodejsauth.Interface.IRecyclerOnClick
 import com.example.kotlinnodejsauth.R
-import com.example.kotlinnodejsauth.data.Video
+import com.example.kotlinnodejsauth.UploadPicPage
+import com.example.kotlinnodejsauth.data.Photo
 import com.squareup.picasso.Picasso
 
-class MyVideoAdapter( internal val context: Context?, internal val videoList:List<Video>):RecyclerView.Adapter<MyVideoAdapter.MyViewHolder>(){
+class MyPhotoAdapter(internal val context: Context?, internal val photoList:List<Photo>):RecyclerView.Adapter<MyPhotoAdapter.MyViewHolder>(){
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int):MyViewHolder {
         val view  = LayoutInflater.from(context)
-            .inflate(R.layout.item_feed,p0,false)
+            .inflate(R.layout.item_picture,p0,false)
         return MyViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return videoList.size
+        return photoList.size
     }
 
-    //비디오 볼래 게시물 클릭시
     override fun onBindViewHolder(p0: MyViewHolder, p1: Int) {
-     Picasso.get().load(videoList[p1].uriimage).into(p0.video_image)
-        p0.video_name.text = videoList[p1].title
-        p0.setClick(object :IRecyclerOnClick{
-            override fun onClcik(view: View, position: Int) {
-                Common.select_video = videoList[position]
-                val intent = Intent(context, DetailVideo::class.java)
-                view.context.startActivity(intent)
+        Picasso.get().load(photoList[p1].photo1).into(p0.picture_image)
+        p0.picture_name.text = photoList[p1].pictitle
+        Log.e("에러",photoList[p1].pictitle.toString())
+
+        //사진볼래 게시물 클릭시
+        p0.setClick(object : IRecyclerOnClick {
+                    override fun onClcik(view: View, position: Int) {
+                        Common.select_photo = photoList[position]
+                        val intent = Intent(context,DetailGallery::class.java)
+                       view.context.startActivity(intent)
 
             }
 
@@ -50,24 +52,24 @@ class MyVideoAdapter( internal val context: Context?, internal val videoList:Lis
 
     inner class MyViewHolder (itemView:View) : RecyclerView.ViewHolder(itemView),View.OnClickListener{
 
-        internal var video_image : ImageView
-        internal var video_name : TextView
+        internal var picture_image : ImageView
+        internal var picture_name : TextView
         internal lateinit var iRecyclerOnClick: IRecyclerOnClick
 
         fun setClick(iRecyclerOnClick: IRecyclerOnClick) {
             this.iRecyclerOnClick = iRecyclerOnClick
         }
 
-       init{
-           video_image = itemView.findViewById(R.id.video_image) as ImageView
-           video_name = itemView.findViewById(R.id.video_name)  as TextView
-           itemView.setOnClickListener(this)
+        init{
+            picture_image = itemView.findViewById(R.id.picture_image) as ImageView
+            picture_name = itemView.findViewById(R.id.picture_name)  as TextView
+            itemView.setOnClickListener(this)
         }
 
-       override fun onClick(v: View?) {
-      iRecyclerOnClick.onClcik(v!!,adapterPosition)
-       }
+        override fun onClick(v: View?) {
+            iRecyclerOnClick.onClcik(v!!,adapterPosition)
+        }
 
 
-   }
+    }
 }
