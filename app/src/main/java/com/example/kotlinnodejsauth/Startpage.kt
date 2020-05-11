@@ -12,9 +12,9 @@ class Startpage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_startpage)
 
+        //Handler를 사용해서 화면이 3초 딜레이후 자동으로 이동
         Handler().postDelayed({
             startActivity(Intent(this@Startpage, MainActivity::class.java))
-
-        }, 2000)
+        }, 3000)
     }
 }
