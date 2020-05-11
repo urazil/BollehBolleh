@@ -1,11 +1,11 @@
 package com.example.kotlinnodejsauth.Service
 
 import android.widget.ImageView
-import com.example.kotlinnodejsauth.FeedFragment
+import com.example.kotlinnodejsauth.VideoPage
 import com.squareup.picasso.Picasso
 import ss.com.bannerslider.ImageLoadingService
 
-class PicassoImageLoadingService(var context: FeedFragment) : ImageLoadingService {
+class PicassoImageLoadingService(var context: VideoPage) : ImageLoadingService {
     override fun loadImage(url: String?, imageView: ImageView?) {
         Picasso.get().load(url).into(imageView)
     }
