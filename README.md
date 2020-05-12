@@ -38,7 +38,7 @@ Bolleh Bolleh App 시연 동영상 입니다.
 ### 회원가입
 
 <div>
-  <img src="(https://user-images.githubusercontent.com/48799375/81667430-38ebf780-947e-11ea-9773-bca5439614f5.png" width="200"></img>
+  <img src="https://user-images.githubusercontent.com/48799375/81668116-1e664e00-947f-11ea-8fc7-db24ce5f5d8d.png" width="200"></img>
 </div>
 
  이메일, 비밀번호, 닉네임에 정규식을 사용해서 만들어야 회원가입이 되도록 하였습니다.
@@ -46,8 +46,20 @@ Bolleh Bolleh App 시연 동영상 입니다.
 ### 영상볼래
 
 <div>
-  <img src="(https://user-images.githubusercontent.com/48799375/81667928-e7903800-947e-11ea-8bdd-c217261d1702.png" width="200"></img>
+  <img src="https://user-images.githubusercontent.com/48799375/81667928-e7903800-947e-11ea-8bdd-c217261d1702.png" width="200"></img>
+   <img src="https://user-images.githubusercontent.com/48799375/81668171-3b028600-947f-11ea-9b56-27bce543aaf0.png" width="200"></img>
+ <img src="https://user-images.githubusercontent.com/48799375/81668305-72713280-947f-11ea-9942-76f3f4fba094.png" width="200"></img>
 </div>
+<div>
+  <img src="https://user-images.githubusercontent.com/48799375/81668409-9c2a5980-947f-11ea-8a49-4da6431af2a3.png" width="200"></img>
+  
+</div>
+
+
+
+
+
+
 
 
 
