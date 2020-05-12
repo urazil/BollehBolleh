@@ -19,7 +19,9 @@ https://github.com/urazil/bollehServer
  
 Bolleh Bolleh App 시연 동영상 입니다.
 
-<iframe width="640" height="360" src="https://youtu.be/EG6hmDY5EtI" frameborder="0" gesture="media" allowfullscreen=""></iframe>
+
+[![Video Label](https://user-images.githubusercontent.com/48799375/81665852-35577100-947c-11ea-8b83-d168658f1cac.png)](https://youtu.be/dBblHLPTJkw?t=0s)
+
 
 
 # 기능
