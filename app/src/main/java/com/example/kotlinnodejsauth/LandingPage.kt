@@ -77,4 +77,4 @@ class LandingPage : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-}
+} 
