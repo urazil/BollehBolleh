@@ -80,6 +80,7 @@ SOCKET.IO를 사용하여 채팅 구현중에 있습니다.
 
 <div>
   <img src="https://user-images.githubusercontent.com/48799375/81670869-38099480-9483-11ea-930c-d70a7ed1e3a9.png" width="200"></img>
+   <img src="https://user-images.githubusercontent.com/48799375/81671921-6cca1b80-9484-11ea-92d8-afd9e47ce5d5.png" width="200"></img>
    <img src="https://user-images.githubusercontent.com/48799375/81670946-57a0bd00-9483-11ea-8540-110b0d7745cf.png" width="200"></img>
  <img src="https://user-images.githubusercontent.com/48799375/81670984-62f3e880-9483-11ea-8e6c-fce26201da27.png" width="200"></img>
 </div>
