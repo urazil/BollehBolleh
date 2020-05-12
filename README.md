@@ -27,11 +27,15 @@ Bolleh Bolleh App 시연 동영상 입니다.
 
 # 기능
 
-##로그인 
+## 로그인 
 
 <div>
   <img src="https://user-images.githubusercontent.com/48799375/81666949-a77c8580-947d-11ea-9b6e-2abe38404fca.png" width="200"></img>
 </div>
+
+## 회원가입
+
+
 
 
 
