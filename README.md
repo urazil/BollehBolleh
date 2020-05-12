@@ -27,13 +27,29 @@ Bolleh Bolleh App 시연 동영상 입니다.
 
 # 기능
 
-## 로그인 
+### 로그인 
 
 <div>
   <img src="https://user-images.githubusercontent.com/48799375/81666949-a77c8580-947d-11ea-9b6e-2abe38404fca.png" width="200"></img>
 </div>
 
-## 회원가입
+아이디와 비밀번호가 맞지않을경우 로그인이 되지않도록 하였습니다.
+
+### 회원가입
+
+<div>
+  <img src="(https://user-images.githubusercontent.com/48799375/81667430-38ebf780-947e-11ea-9773-bca5439614f5.png" width="200"></img>
+</div>
+
+ 이메일, 비밀번호, 닉네임에 정규식을 사용해서 만들어야 회원가입이 되도록 하였습니다.
+
+### 영상볼래
+
+<div>
+  <img src="(https://user-images.githubusercontent.com/48799375/81667928-e7903800-947e-11ea-8bdd-c217261d1702.png" width="200"></img>
+</div>
+
+
 
 
 
