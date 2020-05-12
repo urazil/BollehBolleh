@@ -50,7 +50,50 @@ Bolleh Bolleh App 시연 동영상 입니다.
    <img src="https://user-images.githubusercontent.com/48799375/81668171-3b028600-947f-11ea-9b56-27bce543aaf0.png" width="200"></img>
  <img src="https://user-images.githubusercontent.com/48799375/81668305-72713280-947f-11ea-9942-76f3f4fba094.png" width="200"></img>
   <img src="https://user-images.githubusercontent.com/48799375/81668409-9c2a5980-947f-11ea-8a49-4da6431af2a3.png" width="200"></img>
+   <img src="https://user-images.githubusercontent.com/48799375/81670609-d6492a80-9482-11ea-8a8f-bf10d0dd018f.png" width="200"></img>
 </div>
+
+
+영상 썸네일 사진을 원하는 사진으로 지정 할 수 있으며 영상은 MediaPlayer 라이브러리를 사용하였으며 Videocontroller로  영상정지 및 빨리감기 뒤로감기를 구현했습니다. 영상수정,삭제 기능도 구현이 되었습니다. 또한 댓글 기능을 추가하여 사용자끼리 영상에 댓글을 이용하여 소통을 하게끔 만들었습니다.
+
+### 사진볼래
+
+<div>
+  <img src="https://user-images.githubusercontent.com/48799375/81669811-b36a4680-9481-11ea-83c1-a86e2a1dacda.png" width="200"></img>
+   <img src="https://user-images.githubusercontent.com/48799375/81669859-c5e48000-9481-11ea-90b8-c3afcd3de293.png" width="200"></img>
+ <img src="https://user-images.githubusercontent.com/48799375/81669917-dbf24080-9481-11ea-8d93-bf5369616900.png" width="200"></img>
+  <img src="https://user-images.githubusercontent.com/48799375/81669967-ef9da700-9481-11ea-81f9-8f1ded896ec6.png" width="200"></img>
+</div>
+
+여러장의 사진을 업로드할 수 있으며, 수정 삭제가 가능합니다. Picasso 라이브러리를 사용하여 사진의 크기와 반대로 나오는 현상을 바로 잡았습니다.
+
+### 채팅볼래(구현중)
+
+<div>
+  <img src="https://user-images.githubusercontent.com/48799375/81670376-7783b100-9482-11ea-89da-520283bf4802.png" width="200"></img>
+   <img src="https://user-images.githubusercontent.com/48799375/81670412-85d1cd00-9482-11ea-816d-65d477c8fede.png" width="200"></img>
+</div>
+
+SOCKET.IO를 사용하여 채팅 구현중에 있습니다.
+
+### 내 정보 
+
+<div>
+  <img src="https://user-images.githubusercontent.com/48799375/81670869-38099480-9483-11ea-930c-d70a7ed1e3a9.png" width="200"></img>
+   <img src="https://user-images.githubusercontent.com/48799375/81670946-57a0bd00-9483-11ea-8540-110b0d7745cf.png" width="200"></img>
+ <img src="https://user-images.githubusercontent.com/48799375/81670984-62f3e880-9483-11ea-8e6c-fce26201da27.png" width="200"></img>
+</div>
+
+닉네임 변경과 비밀번호 재설정, 회원 탈퇴 기능이 있습니다.
+
+
+
+
+
+
+
+
+
 
 
 
