@@ -11,7 +11,19 @@ YouTube어플을 모티브로 만들었으며 동영상 게시물과 사진 게�
 * Retrofit2
 * AWS(RDS)
 
+# 서버 깃헙
+
+https://github.com/urazil/bollehServer
+
+ # 동영상
+ 
+Bolleh Bolleh App 시연 동영상 입니다.
+
+
+
 # 기능
+
+
 
 
 
